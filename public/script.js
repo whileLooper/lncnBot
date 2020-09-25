@@ -1,10 +1,19 @@
 
 document.querySelector('button[id="copyBtn"]').addEventListener('click', (e) => {
+  const options = {
+    method: "POST",
+    headers: { "Content-Type": "application/json; charset=utf-8" },
+  };
+
   fetch("/.netlify/functions/copy-node", options)
     .then((res) => res.json())
     .then((res) => {
       copyToClipboard(res.message)
-    });
+    })
+    .catch((err) => {
+      console.log(err)
+      document.getElementById('result').textContent = `Error: ${err.toString()}`
+  });;
 })
 
 const copyToClipboard = str => {
