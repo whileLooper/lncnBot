@@ -1,4 +1,3 @@
-const puppeteer = require('puppeteer-core');
 const chromium = require('chrome-aws-lambda');
 const buttonSelector = '#index > div.layout-left-right.el-row > div.boxes-wrapper.layout-main.el-col.el-col-18.el-col-xs-24.el-col-sm-24.el-col-md-18 > div.ssr-list-wrapper.base-box > div.ssr-btn-bar > button';
 
