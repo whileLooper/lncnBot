@@ -6,23 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main>
-        <h1>Netlify Puppeteer Demo</h1>
-        <p>A demonstration of how to use Puppeteer in a  Netlify function to take a screenshot of a web page.</p>
-        <p>
-            <a href="https://github.com/ireade/netlify-puppeteer-screenshot-demo">🛠View the source of this website</a><br>
-            <a href="https://bitsofco.de/how-to-use-puppeteer-in-a-netlify-aws-lambda-function/">📖 Read the article</a>
-        </p>
-
-        <form>
-            <input type="url" id="page" aria-label="URL" value="https://bitsofco.de">
-            <button type="btn btn-primary submit">复制节点!</button>
-        </form>
-
-        <div id="result" aria-live="polite"></div>
+        <div class="container">
+            <h1>Netlify Puppeteer Demo</h1>
+            <p>
+                <a href="https://github.com/ireade/netlify-puppeteer-screenshot-demo">🛠View the source of this website</a><br>
+                <a href="https://bitsofco.de/how-to-use-puppeteer-in-a-netlify-aws-lambda-function/">📖 Read the article</a>
+            </p>
+    
+            <form>
+                <button type="button" class="copyBtn btn btn-primary" >复制节点!</button>
+            </form>
+    
+            <div id="result" aria-live="polite"></div>
+        </div>
     </main>
     
     <script src="script.js"></script>
