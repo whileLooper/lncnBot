@@ -24,5 +24,10 @@ exports.handler = async (event, context) => {
   const copiedText = await page.evaluate(`(async () => await navigator.clipboard.readText())()`);
 
   await browser.close();
-  return copiedText;
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ 
+        message: copiedText, 
+    })
+  };
 }
