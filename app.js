@@ -15,20 +15,20 @@ app.listen(port, () => {
 
 
 const getToken = async () => {
-  const brower = await puppeteer.launch({
+  const browser = await puppeteer.launch({
     // headless: false,
   });
 
   // clipboard setting
-  const context = brower.defaultBrowserContext();
+  const context = browser.defaultBrowserContext();
   context.overridePermissions('https://lncn.org/', ['clipboard-write', 'clipboard-read']);
 
   // get page content
-  const page = await brower.newPage();
+  const page = await browser.newPage();
   await page.goto('https://lncn.org/');
   await page.click(buttonSelector);
   const copiedText = await page.evaluate(`(async () => await navigator.clipboard.readText())()`);
 
-  await brower.close();
+  await browser.close();
   return copiedText;
 };
