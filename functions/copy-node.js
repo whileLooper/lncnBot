@@ -15,7 +15,7 @@ exports.handler = async (event, context) => {
   });
 
   // clipboard setting
-  const context = browser.defaultBrowserContext();
+  context = browser.defaultBrowserContext();
   context.overridePermissions('https://lncn.org/', ['clipboard-write', 'clipboard-read']);
 
   // get page content
