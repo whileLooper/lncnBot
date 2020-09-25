@@ -1,5 +1,5 @@
 
-document.querySelector('button[type="submit"]').addEventListener('click', (e) => {
+document.querySelector('button[id="copyBtn"]').addEventListener('click', (e) => {
   fetch("/.netlify/functions/copy-node", options)
     .then((res) => res.json())
     .then((res) => {
