@@ -1,5 +1,5 @@
 
-document.querySelector('button[id="copyBtn"]').addEventListener('click', (e) => {
+document.querySelector('button[id="copyBtn"]').addEventListener('click touchstart', (e) => {
   const options = {
     method: "POST",
     headers: { "Content-Type": "application/json; charset=utf-8" },
