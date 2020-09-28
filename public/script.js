@@ -1,5 +1,5 @@
 
-document.querySelector('button[id="copyBtn"]').addEventListener('click touchstart', (e) => {
+document.querySelector('button[id="copyBtn"]').addEventListener('click', (e) => {
   const options = {
     method: "POST",
     headers: { "Content-Type": "application/json; charset=utf-8" },
@@ -26,4 +26,6 @@ const copyToClipboard = str => {
   el.select();
   document.execCommand('copy');
   document.body.removeChild(el);
+  const result = document.querySelector('div[id="copy_result]');
+  result.style.display = 'block';
 };
