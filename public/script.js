@@ -26,6 +26,6 @@ const copyToClipboard = str => {
   el.select();
   document.execCommand('copy');
   document.body.removeChild(el);
-  const result = document.querySelector('div[id="copy_result]');
+  const result = document.querySelector('div[id="copy_result"]');
   result.style.display = 'block';
 };
