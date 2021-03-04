@@ -2,7 +2,7 @@ const app = require('express')();
 const port = 3000;
 const puppeteer = require('puppeteer');
 
-const buttonSelector = '#index > div.layout-left-right.el-row > div.boxes-wrapper.layout-main.el-col.el-col-18.el-col-xs-24.el-col-sm-24.el-col-md-18 > div.ssr-list-wrapper.base-box > div.ssr-btn-bar > button';
+const buttonSelector = '#index > div.layout-left-right.el-row > div.boxes-wrapper.layout-main.el-col.el-col-17.el-col-xs-24.el-col-sm-24.el-col-md-17 > div.ssr-list-wrapper.base-box > div.ssr-btn-bar > button';
 
 app.get('/', async (req, res) => {
   const token = await getToken();
