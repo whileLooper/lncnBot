@@ -1,5 +1,5 @@
 const chromium = require('chrome-aws-lambda');
-const buttonSelector = "#index > div.layout-left-right.el-row > div.boxes-wrapper.layout-main.el-col.el-col-17.el-col-xs-24.el-col-sm-24.el-col-md-17 > div.ssr-list-wrapper.base-box > div.ssr-btn-bar > button";
+const buttonSelector = "body> div > div > div> div > div.layout-left-right.el-row > div.boxes-wrapper.layout-main.el-col.el-col-17.el-col-xs-24.el-col-sm-24.el-col-md-17 > div.ssr-list-wrapper.base-box > div.ssr-btn-bar > button";
 
 exports.handler = async (event, context) => {
 
