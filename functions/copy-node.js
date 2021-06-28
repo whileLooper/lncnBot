@@ -21,6 +21,12 @@ exports.handler = async (event, context) => {
   const page = await browser.newPage();
   await page.goto('https://lncn.org/');
   await page.click(buttonSelector);
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ 
+        message: 'clicked button', 
+    })
+  };
   console.log('clicked button')
   const copiedText = await page.evaluate(async () => {
     const text = await navigator.clipboard.readText();
