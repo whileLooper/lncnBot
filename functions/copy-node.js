@@ -20,7 +20,8 @@ exports.handler = async (event, context) => {
   // get page content
   const page = await browser.newPage();
   await page.goto('https://lncn.org/');
-  await page.click(buttonSelector);
+  await page.focus(buttonSelector);
+  await page.click(buttonSelector); 
 
   const copiedText = await page.evaluate(async () => {
     const text = await navigator.clipboard.readText();

@@ -15,38 +15,20 @@ app.listen(port, () => {
 
 
 const getToken = async () => {
-  const browser = await chromium.puppeteer.launch({
-    // Required
-    executablePath: await chromium.executablePath,
-
-    // Optional
-    args: chromium.args,
-    defaultViewport: chromium.defaultViewport,
-    headless: chromium.headless
+  const browser = await puppeteer.launch({
+    // headless: false,
   });
 
   // clipboard setting
-  context = browser.defaultBrowserContext();
+  const context = browser.defaultBrowserContext();
   context.overridePermissions('https://lncn.org/', ['clipboard-write', 'clipboard-read']);
 
   // get page content
   const page = await browser.newPage();
   await page.goto('https://lncn.org/');
-  await page.focus(buttonSelector);
-  await page.click(buttonSelector); 
-
-  const copiedText = await page.evaluate(async () => {
-    const text = await navigator.clipboard.readText();
-    console.log(text);
-    return text;
-  });
+  await page.click(buttonSelector);
+  const copiedText = await page.evaluate(`(async () => await navigator.clipboard.readText())()`);
 
   await browser.close();
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ 
-        message: copiedText,
-        seletor: buttonSelector
-    })
-  };
+  return copiedText;
 };
