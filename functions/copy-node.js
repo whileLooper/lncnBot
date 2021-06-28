@@ -17,16 +17,18 @@ exports.handler = async (event, context) => {
   context = browser.defaultBrowserContext();
   context.overridePermissions('https://lncn.org/', ['clipboard-write', 'clipboard-read']);
 
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ 
+        message: 'text', 
+    })
+  };
+
   // get page content
   const page = await browser.newPage();
   await page.goto('https://lncn.org/');
   await page.click(buttonSelector);
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ 
-        message: 'clicked button', 
-    })
-  };
+
   console.log('clicked button')
   const copiedText = await page.evaluate(async () => {
     const text = await navigator.clipboard.readText();
