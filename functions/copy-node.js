@@ -21,7 +21,11 @@ exports.handler = async (event, context) => {
   const page = await browser.newPage();
   await page.goto('https://lncn.org/');
   await page.click(buttonSelector);
-  const copiedText = await page.evaluate(`(async () => await navigator.clipboard.readText())()`);
+  const copiedText = await navigator.clipboard.readText();
+  setTimeout(() => {
+    console.log('waiting for 1.5 sec.')
+  }, 1500);
+  // const copiedText = await page.evaluate(`(async () => await navigator.clipboard.readText())()`);
 
   await browser.close();
   return {
