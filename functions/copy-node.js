@@ -1,6 +1,6 @@
 const chromium = require('chrome-aws-lambda');
-const buttonSelector = '#index > div.layout-left-right.el-row > div.boxes-wrapper.layout-main.el-col.el-col-17.el-col-xs-24.el-col-sm-24.el-col-md-17 > div.ssr-list-wrapper.base-box > div.ssr-btn-bar > button';
-const xPath = '//*[@id="index"]/div[2]/div[1]/div[1]/div[4]/button';
+const buttonSelector = "#index > div.layout-left-right.el-row > div.boxes-wrapper.layout-main.el-col.el-col-17.el-col-xs-24.el-col-sm-24.el-col-md-17 > div.ssr-list-wrapper.base-box > div.ssr-btn-bar > button";
+
 exports.handler = async (event, context) => {
 
   const browser = await chromium.puppeteer.launch({
@@ -20,8 +20,7 @@ exports.handler = async (event, context) => {
   // get page content
   const page = await browser.newPage();
   await page.goto('https://lncn.org/');
-  await page.$(xPath)[0].click();
-  // await page.click(buttonSelector);
+  await page.click(buttonSelector);
 
   const copiedText = await page.evaluate(async () => {
     const text = await navigator.clipboard.readText();
