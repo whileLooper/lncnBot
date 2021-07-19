@@ -6,7 +6,7 @@
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["activeTab", "tabs", "storage"],
+  "permissions": [],
   "action": {
     "default_popup": "popup.html",
     "default_title": "Symbols & Accents Toolkit"
